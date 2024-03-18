@@ -10,24 +10,24 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/pedrolssilva/Curso-Testes_em_DotNet-Testando_softwar">
+  <a href="https://github.com/pedrolssilva/JornadaMilhas">
     <img src="https://seeklogo.com/images/C/c-logo-A44DB3D53C-seeklogo.com.png" alt="Logo" width="80" height="80">
     <img src="https://www.nuget.org/profiles/xunit/avatar?imageSize=512" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">Testes em .NET: integrando a aplicação com um banco de dados</h3>
+<h3 align="center">Testes em .NET: criando testes de unidade com xUnit</h3>
 
   <p align="center">
     Projeto desenvolvido durante o curso ministrado dentro da plataforma alura pertencente a formação <a href="https://cursos.alura.com.br/formacao-testes-em-dotnet"><strong>Testes em .NET</strong></a>.
     <br />
-    <a href="https://cursos.alura.com.br/course/testes-net-integrando-aplicacao-banco-dados"><strong>Explore the docs »</strong></a>
+    <a href="https://cursos.alura.com.br/course/testes-dot-net-criando-testes-unidade-xunit"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://cursos.alura.com.br/course/testes-net-integrando-aplicacao-banco-dados">View Demo</a>
+    <a href="https://cursos.alura.com.br/course/testes-dot-net-criando-testes-unidade-xunit">View Demo</a>
     ·
-    <a href="https://github.com/pedrolssilva/Curso-Testes_em_DotNet-Testando_softwar/issues">Report Bug</a>
+    <a href="https://github.com/pedrolssilva/JornadaMilhas/issues">Report Bug</a>
     ·
-    <a href="https://github.com/pedrolssilva/Curso-Testes_em_DotNet-Testando_softwar/issues">Request Feature</a>
+    <a href="https://github.com/pedrolssilva/JornadaMilhas/issues">Request Feature</a>
   </p>
 </div>
 
@@ -97,7 +97,7 @@ This is an example of how to list things you need to use the software and how to
 1. Get a free API Key at [https://example.com](https://example.com)
 2. Clone the repo
    ```sh
-   git clone https://github.com/pedrolssilva/Curso-Testes_em_DotNet-Testando_software.git
+   git clone https://github.com/pedrolssilva/JornadaMilhas.git
    ```
 3. Install NPM packages
    ```sh
@@ -129,7 +129,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 - [ ] Feature 3
   - [ ] Nested Feature -->
 
-See the [open issues](https://github.com/pedrolssilva/Curso-Testes_em_DotNet-Testando_softwar/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/pedrolssilva/JornadaMilhas/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -164,7 +164,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 [Pedro L.](mailto:pedrolssilva@hotmail.com)
 
-Project Link: [Source Repo](https://github.com/pedrolssilva/Curso-Testes_em_DotNet-Testando_softwar/)
+Project Link: [Source Repo](https://github.com/pedrolssilva/JornadaMilhas/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -181,16 +181,16 @@ Project Link: [Source Repo](https://github.com/pedrolssilva/Curso-Testes_em_DotN
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/pedrolssilva/Curso-Testes_em_DotNet-Testando_softwar.svg?style=for-the-badge
-[contributors-url]: https://github.com/pedrolssilva/Curso-Testes_em_DotNet-Testando_softwar/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/pedrolssilva/Curso-Testes_em_DotNet-Testando_softwar.svg?style=for-the-badge
-[forks-url]: https://github.com/pedrolssilva/Curso-Testes_em_DotNet-Testando_softwar/network/members
-[stars-shield]: https://img.shields.io/github/stars/pedrolssilva/Curso-Testes_em_DotNet-Testando_softwar.svg?style=for-the-badge
-[stars-url]: https://github.com/pedrolssilva/Curso-Testes_em_DotNet-Testando_softwar/stargazers
-[issues-shield]: https://img.shields.io/github/issues/pedrolssilva/Curso-Testes_em_DotNet-Testando_softwar.svg?style=for-the-badge
-[issues-url]: https://github.com/pedrolssilva/Curso-Testes_em_DotNet-Testando_softwar/issues
-[license-shield]: https://img.shields.io/github/license/pedrolssilva/Curso-Testes_em_DotNet-Testando_softwar.svg?style=for-the-badge
-[license-url]: https://github.com/pedrolssilva/Curso-Testes_em_DotNet-Testando_softwar/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/pedrolssilva/JornadaMilhas.svg?style=for-the-badge
+[contributors-url]: https://github.com/pedrolssilva/JornadaMilhas/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/pedrolssilva/JornadaMilhas.svg?style=for-the-badge
+[forks-url]: https://github.com/pedrolssilva/JornadaMilhas/network/members
+[stars-shield]: https://img.shields.io/github/stars/pedrolssilva/JornadaMilhas.svg?style=for-the-badge
+[stars-url]: https://github.com/pedrolssilva/JornadaMilhas/stargazers
+[issues-shield]: https://img.shields.io/github/issues/pedrolssilva/JornadaMilhas.svg?style=for-the-badge
+[issues-url]: https://github.com/pedrolssilva/JornadaMilhas/issues
+[license-shield]: https://img.shields.io/github/license/pedrolssilva/JornadaMilhas.svg?style=for-the-badge
+[license-url]: https://github.com/pedrolssilva/JornadaMilhas/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/pedrolssilva
 [product-screenshot]: images/screenshot.png
