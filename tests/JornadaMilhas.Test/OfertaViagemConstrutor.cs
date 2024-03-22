@@ -4,18 +4,22 @@ namespace JornadaMilhas.Test
 {
     public class OfertaViagemConstrutor
     {
-        [Fact]
-        public void RetornaOfertaValidaQuandoDadosValidos()
+        [Theory]
+        [InlineData("", null, "2024-01-01", "2024-01-02", 0, false)]
+        [InlineData("OrigemTeste", "DestinoTeste", "2024-02-01", "2024-02-05", 100, true)]
+        [InlineData(null, "São Paulo", "2024-02-01", "2024-01-05", -1, false)]
+        [InlineData("Vitória", "São Paulo", "2024-02-01", "2024-01-05", 0, false)]
+        [InlineData("Rio de Janeiro", "São Paulo", "2024-02-01", "2024-01-05", -500, false)]
+        public void RetornaEhValidoDeAcordoComDadosDeEntrada(string origem, string destino,
+            string dataIda, string dataVolta, double preco, bool validacao)
         {
             // Arrange
-            Rota rota = new Rota("OrigemTeste", "DestinoTeste");
-            Periodo periodo = new(new(2024, 2, 1), new(2024, 02, 05));
-            double preco = 100.0;
-            var validacao = true;
+            Rota rota = new Rota(origem, destino);
+            Periodo periodo = new(DateTime.Parse(dataIda), DateTime.Parse(dataVolta));
 
             // Act
             OfertaViagem oferta = new(rota, periodo, preco);
-            
+
             // Assert
             Assert.Equal(validacao, oferta.EhValido);
         }
@@ -37,7 +41,7 @@ namespace JornadaMilhas.Test
         }
 
         [Fact]
-        public  void etornaMensagemDeErroDePrecoInvalidoQuandoPrecoMenorQueZero()
+        public void etornaMensagemDeErroDePrecoInvalidoQuandoPrecoMenorQueZero()
         {
             //Arrange 
             Rota rota = new Rota("Origem1", "Destino1");
