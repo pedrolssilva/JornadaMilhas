@@ -15,6 +15,7 @@ public class OfertaViagem : Valida
     public int Id { get; set; }
     public Rota Rota { get; set; }
     public Periodo Periodo { get; set; }
+    public bool Ativa { get; set; } = true;
     public double Preco { get; set; }
     public double Desconto
     {
@@ -22,15 +23,21 @@ public class OfertaViagem : Valida
         set
         {
             desconto = value;
+
             if (desconto >= Preco)
             {
                 Preco *= (1 - DESCONTO_MAXIMO);
             }
-            else
+            else if (desconto > 0)
             {
                 Preco -= desconto;
             }
         }
+    }
+
+    public OfertaViagem()
+    {
+
     }
 
     public OfertaViagem(Rota rota, Periodo periodo, double preco)
@@ -52,11 +59,11 @@ public class OfertaViagem : Valida
         {
             Erros.RegistrarErro(Periodo.Erros.Sumario);
         }
-        else if (Rota == null || Periodo == null)
+        if (Rota == null || Periodo == null)
         {
             Erros.RegistrarErro("A oferta de viagem não possui rota ou período válidos.");
         }
-        else if (Preco <= 0)
+        if (Preco <= 0)
         {
             Erros.RegistrarErro("O preço da oferta de viagem deve ser maior que zero.");
         }
