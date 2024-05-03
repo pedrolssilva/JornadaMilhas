@@ -1,11 +1,11 @@
 using JornadaMilhas.Dados;
 using JornadaMilhasV1.Modelos;
-using Microsoft.EntityFrameworkCore;
 using Xunit.Abstractions;
 
 namespace JM.Test.Integracao
 {
-    public class OfertaViagemDalAdicionar : IClassFixture<ContextoFixture>
+    [Collection(nameof(ContextoCollection))]
+    public class OfertaViagemDalAdicionar
     {
         private readonly JornadaMilhasContext context;
 
