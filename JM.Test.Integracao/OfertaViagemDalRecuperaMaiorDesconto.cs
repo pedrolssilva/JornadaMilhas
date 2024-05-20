@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace JM.Test.Integracao
 {
     [Collection(nameof(ContextoCollection))]
-    public class OfertaViagemDalRecuperaMaiorDesconto
+    public class OfertaViagemDalRecuperaMaiorDesconto : IDisposable
     {
         private readonly JornadaMilhasContext context;
         private readonly ContextoFixture fixture;
@@ -22,13 +22,18 @@ namespace JM.Test.Integracao
             this.fixture = fixture;
         }
 
+        public async void Dispose()
+        {
+            await fixture.LimpaDadosDoBanco();
+        }
+
         [Fact]
         // destino = são paulo, desconto = 40, preco 80
         public void RetornaOfertaEspecificaQuandoDestinoSaoPauloEDesconto40()
         {
             //Arrange 
             var rota = new Rota("Curitiba", "São Paulo");
-            Periodo periodo = new(new DateTime(2024, 8, 20), new DateTime(2024, 8, 30));
+            Periodo periodo = new PeriodoDataBuilder() { DataInicial = new(2024, 5, 20) }.Build();
             fixture.CriaDadosFake();
 
             var ofertaEscolhida = new OfertaViagem(rota, periodo, 80)
@@ -41,6 +46,33 @@ namespace JM.Test.Integracao
             dal.Adicionar(ofertaEscolhida);
             Func<OfertaViagem, bool> filtro = o => o.Rota.Destino.Equals("São Paulo");
             var precoEsperado = 40;
+
+            //Act 
+            var oferta = dal.RecuperaMaiorDesconto(filtro);
+
+            //Assert
+            Assert.NotNull(oferta);
+            Assert.Equal(precoEsperado, oferta.Preco, 0.0001);
+        }
+
+        [Fact]
+        public void RetornaOfertaEspecificaQuandoDestinoSaoPauloEDesconto60()
+        {
+            //Arrange 
+            var rota = new Rota("Curitiba", "São Paulo");
+            Periodo periodo = new PeriodoDataBuilder() { DataInicial = new(2024, 5, 20) }.Build();
+            fixture.CriaDadosFake();
+
+            var ofertaEscolhida = new OfertaViagem(rota, periodo, 80)
+            {
+                Desconto = 60,
+                Ativa = true
+            };
+
+            var dal = new OfertaViagemDAL(context);
+            dal.Adicionar(ofertaEscolhida);
+            Func<OfertaViagem, bool> filtro = o => o.Rota.Destino.Equals("São Paulo");
+            var precoEsperado = 20;
 
             //Act 
             var oferta = dal.RecuperaMaiorDesconto(filtro);

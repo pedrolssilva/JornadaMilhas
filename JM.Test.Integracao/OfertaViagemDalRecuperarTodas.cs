@@ -9,21 +9,27 @@ using Xunit.Abstractions;
 namespace JM.Test.Integracao
 {
     [Collection(nameof(ContextoCollection))]
-    public class OfertaViagemDalRecuperarTodas
+    public class OfertaViagemDalRecuperarTodas : IDisposable
     {
-        private readonly JornadaMilhasContext context;
+        private readonly ContextoFixture fixture;
        
         public OfertaViagemDalRecuperarTodas(ITestOutputHelper output, ContextoFixture fixture)
         {
-            context = fixture.Context;
-            output.WriteLine(context.GetHashCode().ToString());
+            this.fixture = fixture;
+            output.WriteLine(this.fixture.GetHashCode().ToString());
+        }
+
+        public async void Dispose()
+        {
+            await fixture.LimpaDadosDoBanco();
         }
 
         [Fact]
         public void RetornaListaDeOferta()
         {
             //Arrange 
-            var dal = new OfertaViagemDAL(context);
+            fixture.CriaDadosFake();
+            var dal = new OfertaViagemDAL(fixture.Context);
 
             //Act 
             var ofertaRecuperada = dal.RecuperarTodas();

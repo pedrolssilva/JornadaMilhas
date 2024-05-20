@@ -32,18 +32,12 @@ namespace JM.Test.Integracao
 
         public void CriaDadosFake()
         {
-            var fakerPeriodo = new Faker<Periodo>()
-               .CustomInstantiator(f =>
-               {
-                   DateTime dataInicio = f.Date.Soon();
-                   return new Periodo(dataInicio, dataInicio.AddDays(30));
-               });
             var rota = new Rota("Curitiba", "São Paulo");
 
             var fakerOferta = new Faker<OfertaViagem>()
                .CustomInstantiator(f => new OfertaViagem(
                    rota,
-                   fakerPeriodo.Generate(),
+                   new PeriodoDataBuilder().Build(),
                    100 * f.Random.Int(1, 100))
                )
                .RuleFor(o => o.Desconto, f => 40)
@@ -52,6 +46,13 @@ namespace JM.Test.Integracao
             var lista = fakerOferta.Generate(200);
             Context.OfertasViagem.AddRange(lista);
             Context.SaveChanges();
+        }
+
+        public async Task LimpaDadosDoBanco()
+        {
+            Context.Database.ExecuteSqlRaw("DELETE FROM OfertasViagem");
+            Context.Database.ExecuteSqlRaw("DELETE FROM Rotas");
+            await Context.SaveChangesAsync();
         }
 
         public async Task DisposeAsync()
